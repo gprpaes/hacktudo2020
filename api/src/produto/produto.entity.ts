@@ -9,7 +9,7 @@ import {
   OneToMany, OneToOne, JoinColumn
 } from 'typeorm';
 
-
+@Entity()
 export class Produto{
 
     @PrimaryGeneratedColumn()
