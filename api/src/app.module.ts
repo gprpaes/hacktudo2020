@@ -22,6 +22,7 @@ import {Itinerario} from './itinerario/itinerario.entity';
 import { WorkingDaysController } from './working-days/working-days.controller';
 import { WorkingDaysService } from './working-days/working-days.service';
 import { WorkingDaysModule } from './working-days/working-days.module';
+import { WorkingDays } from './working-days/working-days.entity';
 
 
 
@@ -31,7 +32,7 @@ import { WorkingDaysModule } from './working-days/working-days.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.DB_URI,
-      entities: [Entregador, Itinerario, Produto, Endereco],
+      entities: [Entregador, Itinerario, Produto, Endereco,WorkingDays],
       synchronize: true,
       ssl: {
         require: true,

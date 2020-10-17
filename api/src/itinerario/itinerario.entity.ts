@@ -1,3 +1,4 @@
+import { WorkingDays } from 'src/working-days/working-days.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -5,39 +6,37 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  OneToOne,
+  JoinColumn,
 } from 'typeorm';
 
-
 @Entity()
-export class Itinerario{
+export class Itinerario {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @OneToOne(type => WorkingDays)
+  @JoinColumn({ name: 'working_days_id' })
+  workingDays: WorkingDays;
 
-  /*  @Column({name: "dias_de_trabalho"})
-    diasDeTrabalho: number[];*/
+  @Column({ name: 'start_date' })
+  startDate: Date;
 
-    @Column({name: "start_date"})
-    startDate: Date;
+  @Column({ name: 'end_date' })
+  endDate: Date;
 
-    @Column({name: "end_date"})
-    endDate: Date;
+  @Column({ default: true })
+  enabled: boolean;
 
-    @Column({default: true})
-    enabled: boolean;
+  @CreateDateColumn()
+  created: Date;
 
-    @CreateDateColumn()
-    created: Date;
+  @UpdateDateColumn()
+  modified: Date;
 
-    @UpdateDateColumn()
-    modified: Date;
+  @DeleteDateColumn({ name: 'deleted_at' })
+  deletedAt: Date;
 
-    @DeleteDateColumn({name: "deleted_at"})
-    deletedAt: Date;
-
-    @Column()
-    deleted: boolean;
-
-
-
+  @Column()
+  deleted: boolean;
 }
