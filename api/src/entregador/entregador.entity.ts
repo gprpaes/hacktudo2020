@@ -8,7 +8,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Unique(['rg'])
+@Unique(['rg', 'email'])
 @Entity()
 export class Entregador {
   @PrimaryGeneratedColumn()
@@ -17,6 +17,8 @@ export class Entregador {
   @Column()
   rg: string;
 
+  @Column()
+  email: string;
   @Column()
   urlFoto: string;
 
