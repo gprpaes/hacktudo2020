@@ -1,3 +1,4 @@
+import { Itinerario } from 'src/itinerario/itinerario.entity';
 import {
   Entity,
   Column,
@@ -6,6 +7,7 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Unique(['rg', 'email'])
@@ -48,4 +50,10 @@ export class Entregador {
 
   @Column()
   deleted: boolean;
+
+  @OneToMany(
+    () => Itinerario,
+    itinerario => itinerario.entregador,
+  )
+  itinerarios: Itinerario[];
 }
