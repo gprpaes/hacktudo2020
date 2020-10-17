@@ -1,4 +1,5 @@
 import { Endereco } from 'src/endereco/endereco.entity';
+import { Itinerario } from 'src/itinerario/itinerario.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -6,7 +7,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
-  OneToMany, OneToOne, JoinColumn
+  OneToMany, OneToOne, JoinColumn, ManyToOne
 } from 'typeorm';
 
 @Entity()
@@ -38,6 +39,8 @@ export class Produto{
     @JoinColumn()
     enderecoEntrega: Endereco;
 
+    @ManyToOne(() => Itinerario, itinerario => itinerario.produtos)
+    itinerario: Itinerario;
 
 
 }

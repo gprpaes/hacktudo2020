@@ -1,3 +1,5 @@
+import { Entregador } from 'src/entregador/entregador.entity';
+import { Produto } from 'src/produto/produto.entity';
 import { WorkingDays } from 'src/working-days/working-days.entity';
 import {
   Entity,
@@ -7,7 +9,9 @@ import {
   UpdateDateColumn,
   DeleteDateColumn,
   OneToOne,
+  OneToMany,
   JoinColumn,
+  ManyToOne,
 } from 'typeorm';
 
 @Entity()
@@ -39,4 +43,16 @@ export class Itinerario {
 
   @Column()
   deleted: boolean;
+
+  @OneToMany(
+    () => Produto,
+    produto => produto.itinerario,
+  )
+  produtos: Produto[];
+
+  @ManyToOne(
+    () => Entregador,
+    entregador => entregador.itinerarios,
+  )
+  entregador: Entregador;
 }
