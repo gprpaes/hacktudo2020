@@ -19,6 +19,9 @@ import {Entregador} from './entregador/entregador.entity';
 import {Produto} from './produto/produto.entity';
 import {Endereco} from './endereco/endereco.entity';
 import {Itinerario} from './itinerario/itinerario.entity';
+import { WorkingDaysController } from './working-days/working-days.controller';
+import { WorkingDaysService } from './working-days/working-days.service';
+import { WorkingDaysModule } from './working-days/working-days.module';
 
 
 
@@ -39,9 +42,10 @@ import {Itinerario} from './itinerario/itinerario.entity';
     ProdutoModule,
     ItinerarioModule,
     EnderecoModule,
+    WorkingDaysModule,
 
   ],
-  controllers: [AppController, EntregadorController, ProdutoController, ItinerarioController, EnderecoController],
-  providers: [AppService, EntregadorService, ProdutoService, ItinerarioService, EnderecoService],
+  controllers: [AppController, EntregadorController, ProdutoController, ItinerarioController, EnderecoController, WorkingDaysController],
+  providers: [AppService, EntregadorService, ProdutoService, ItinerarioService, EnderecoService, WorkingDaysService],
 })
 export class AppModule {}

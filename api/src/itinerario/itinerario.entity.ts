@@ -14,8 +14,8 @@ export class Itinerario{
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column({name: "dias_de_trabalho"})
-    diasDeTrabalho: number[];
+  /*  @Column({name: "dias_de_trabalho"})
+    diasDeTrabalho: number[];*/
 
     @Column({name: "start_date"})
     startDate: Date;
