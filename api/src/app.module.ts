@@ -12,6 +12,9 @@ import { ProdutoModule } from './produto/produto.module';
 import { ItinerarioController } from './itinerario/itinerario.controller';
 import { ItinerarioService } from './itinerario/itinerario.service';
 import { ItinerarioModule } from './itinerario/itinerario.module';
+import { EnderecoService } from './endereco/endereco.service';
+import { EnderecoController } from './endereco/endereco.controller';
+import { EnderecoModule } from './endereco/endereco.module';
 
 
 
@@ -31,9 +34,10 @@ import { ItinerarioModule } from './itinerario/itinerario.module';
     EntregadorModule,
     ProdutoModule,
     ItinerarioModule,
+    EnderecoModule,
 
   ],
-  controllers: [AppController, EntregadorController, ProdutoController, ItinerarioController],
-  providers: [AppService, EntregadorService, ProdutoService, ItinerarioService],
+  controllers: [AppController, EntregadorController, ProdutoController, ItinerarioController, EnderecoController],
+  providers: [AppService, EntregadorService, ProdutoService, ItinerarioService, EnderecoService],
 })
 export class AppModule {}
