@@ -1,23 +1,49 @@
-import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  Unique,
+  CreateDateColumn,
+  DeleteDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
+@Unique(['rg'])
 @Entity()
-export class Entregador{
+export class Entregador {
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    urlFoto: string;
+  @Column()
+  rg: string;
 
-    @Column()
-    nome: string;
+  @Column()
+  urlFoto: string;
 
-    @Column()
-    senha: string;
+  @Column()
+  nome: string;
 
-    @Column()
-    cidade: string;
+  @Column()
+  senha: string;
 
-    @Column()
-    telefone: string;
+  @Column()
+  cidade: string;
 
-    @Column()
-    veiculo: string;
+  @Column()
+  telefone: string;
+
+  @Column()
+  veiculo: string;
+
+  @CreateDateColumn()
+  created: Date;
+
+  @DeleteDateColumn({ name: 'deleted_at' })
+  deletedAt: Date;
+
+  @UpdateDateColumn()
+  modified: Date;
+
+  @Column()
+  deleted: boolean;
 }
