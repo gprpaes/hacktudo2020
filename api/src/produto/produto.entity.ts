@@ -1,3 +1,4 @@
+import { Endereco } from 'src/endereco/endereco.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -5,6 +6,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  OneToMany, OneToOne, JoinColumn
 } from 'typeorm';
 
 
@@ -28,5 +30,14 @@ export class Produto{
     @Column()
     deleted: boolean;
 
-    
+    @OneToOne(Type => Endereco)
+    @JoinColumn()
+    enderecoColeta: Endereco;
+
+    @OneToOne(Type => Endereco)
+    @JoinColumn()
+    enderecoEntrega: Endereco;
+
+
+
 }
