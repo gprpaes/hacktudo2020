@@ -15,6 +15,10 @@ import { ItinerarioModule } from './itinerario/itinerario.module';
 import { EnderecoService } from './endereco/endereco.service';
 import { EnderecoController } from './endereco/endereco.controller';
 import { EnderecoModule } from './endereco/endereco.module';
+import {Entregador} from './entregador/entregador.entity';
+import {Produto} from './produto/produto.entity';
+import {Endereco} from './endereco/endereco.entity';
+import {Itinerario} from './itinerario/itinerario.entity';
 
 
 
@@ -24,7 +28,7 @@ import { EnderecoModule } from './endereco/endereco.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.DB_URI,
-      entities: [],
+      entities: [Entregador, Itinerario, Produto, Endereco],
       synchronize: true,
       ssl: {
         require: true,
