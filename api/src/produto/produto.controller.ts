@@ -8,13 +8,14 @@ import {
   Param,
 } from '@nestjs/common';
 import { ProdutoService } from './produto.service';
+import ProdutoDTO from './produtoDTO';
 
 @Controller('produto')
 export class ProdutoController {
   constructor(private produtoService: ProdutoService) {}
   @Post('store')
-  create(@Body() dto: Object) {
-    //return this.entregadorService.createEntregador(dto);
+  create(@Body() dto: ProdutoDTO) {
+    return this.produtoService.createProduto(dto);
   }
 
   @Get(':id')

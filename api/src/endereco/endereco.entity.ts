@@ -20,10 +20,10 @@ export class Endereco {
   @Column()
   cep: string;
 
-  @Column()
+  @Column({type: "float"})
   latitude: number;
 
-  @Column()
+  @Column({type: "float"})
   longitude: number;
 
   @CreateDateColumn()
@@ -35,6 +35,6 @@ export class Endereco {
   @DeleteDateColumn({name: "deleted_at"})
   deletedAt: Date;
 
-  @Column()
+  @Column({default: false})
   deleted: boolean;
 }
