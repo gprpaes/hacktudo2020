@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { DeleteResult, Repository, UpdateResult } from 'typeorm';
+import { Repository, UpdateResult } from 'typeorm';
 import { Entregador } from './entregador.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import EntregadorDTO from './entregadorDTO';

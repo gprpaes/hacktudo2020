@@ -20,21 +20,21 @@ export class EntregadorController {
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    return id;
+    return this.entregadorService.findOneEntregador(id);
   }
 
   @Get()
   findAll() {
-    return 'tudão';
+    return this.entregadorService.findAll();
   }
 
   @Delete(':id')
   deleteOne(@Param('id') id: number) {
-    return { affected: id };
+    return this.entregadorService.deleteEntregador(id);
   }
 
   @Put(':id')
-  updateOne(@Param('id') id: number, @Body() dto: Object) {
-    return id;
+  updateOne(@Param('id') id: number, @Body() dto: EntregadorDTO) {
+    return this.entregadorService.updateEntregador(id, dto)
   }
 }
