@@ -19,7 +19,7 @@ export class Itinerario {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(type => WorkingDays)
+  @OneToOne(type => WorkingDays, {cascade: true})
   @JoinColumn({ name: 'working_days_id' })
   workingDays: WorkingDays;
 
@@ -41,7 +41,7 @@ export class Itinerario {
   @DeleteDateColumn({ name: 'deleted_at' })
   deletedAt: Date;
 
-  @Column()
+  @Column({default: false})
   deleted: boolean;
 
   @OneToMany(
