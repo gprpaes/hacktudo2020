@@ -5,4 +5,6 @@ export default class EntregadorDTO{
     senha: string;
     rg: string;
     veiculo: string;
+    email: string;
+    telefone: string;
 }
