@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Produto } from './produto.entity';
-import { Repository } from 'typeorm';
+import { Repository, UpdateResult } from 'typeorm';
 import ProdutoDTO from './produtoDTO';
 import {Endereco} from '../endereco/endereco.entity';
 
@@ -20,6 +20,14 @@ export class ProdutoService {
   }
 
   async findAll(): Promise<Produto[]>{
-      return this.produtoRepository.find();
+      return await this.produtoRepository.find();
+  }
+
+  async deleteOne(id: number): Promise<UpdateResult>{
+    return await this.produtoRepository.softDelete(id);
+  }
+
+  async updateProduto(id: number, dto: ProdutoDTO): Promise<UpdateResult>{
+      return await this.produtoRepository.update(id, dto);
   }
 }
