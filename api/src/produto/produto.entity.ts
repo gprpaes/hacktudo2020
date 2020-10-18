@@ -28,14 +28,14 @@ export class Produto{
     @DeleteDateColumn({name: "deleted_at"})
     deletedAt: Date;
 
-    @Column()
+    @Column({default: false})
     deleted: boolean;
 
-    @OneToOne(Type => Endereco)
+    @OneToOne(Type => Endereco, {cascade:true})
     @JoinColumn()
     enderecoColeta: Endereco;
 
-    @OneToOne(Type => Endereco)
+    @OneToOne(Type => Endereco, {cascade: true})
     @JoinColumn()
     enderecoEntrega: Endereco;
 
