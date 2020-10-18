@@ -42,7 +42,7 @@ export class WorkingDays {
   @DeleteDateColumn({name: 'deleted_at'})
   deletedAt: Date;
 
-  @Column()
+  @Column({default: false})
   deleted: boolean;
 
 }

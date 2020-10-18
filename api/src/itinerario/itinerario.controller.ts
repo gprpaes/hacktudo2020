@@ -8,32 +8,33 @@ import {
   Param,
 } from '@nestjs/common';
 import { ItinerarioService } from './itinerario.service';
+import ItinerarioDTO from './itinerarioDTO';
 
 @Controller('itinerario')
 export class ItinerarioController {
   constructor(private itinerarioService: ItinerarioService) {}
   @Post('store')
-  create(@Body() dto: Object) {
-    //return this.entregadorService.createEntregador(dto);
+  create(@Body() dto: ItinerarioDTO) {
+    return this.itinerarioService.createItinerario(dto);
   }
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    //return this.entregadorService.findOneEntregador(id);
+    return this.itinerarioService.findOne(id);
   }
 
   @Get()
   findAll() {
-    //return this.entregadorService.findAll();
+    return this.itinerarioService.findAll();
   }
 
   @Delete(':id')
   deleteOne(@Param('id') id: number) {
-    //return this.entregadorService.deleteEntregador(id);
+    return this.itinerarioService.deleteItinerario(id);
   }
 
   @Put(':id')
-  updateOne(@Param('id') id: number, @Body() dto: Object) {
-    //return this.entregadorService.updateEntregador(id, dto)
+  updateOne(@Param('id') id: number, @Body() dto: ItinerarioDTO) {
+    return this.itinerarioService.updateItinerario(id, dto)
   }
 }

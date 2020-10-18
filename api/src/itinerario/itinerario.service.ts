@@ -16,7 +16,7 @@ export class ItinerarioService {
   }
 
   async findOne(id: number): Promise<Itinerario> {
-    return await this.itinerarioRepository.findOne(id);
+    return await this.itinerarioRepository.findOne(id, {relations: ["workingDays"]});
   }
 
   async findAll(): Promise<Itinerario[]> {
