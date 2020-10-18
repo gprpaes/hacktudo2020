@@ -1,12 +1,28 @@
 import React from 'react';
-import { StyleSheet, KeyboardAvoidingView, View, Text, Image, TouchableOpacity } from 'react-native';
+import { TouchableHighlight, StyleSheet, KeyboardAvoidingView, View, Text, Image, TouchableOpacity } from 'react-native';
 
 export default function Vehicle({ navigation }) {
     return(
         <KeyboardAvoidingView style={styles.container}>
             <Text  style={styles.text}>Escolha o Veículo</Text>
             <View style={styles.containerForm}>
-                <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('CreateForm')}>
+            <TouchableHighlight onPress={() => navigation.navigate('CreateRG')}>
+              <View style={styles.button}>
+                <Text style={styles.textAuto}>Bicicleta</Text>
+              </View>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => navigation.navigate('CreateRG')}>
+              <View style={styles.button}>
+                <Text style={styles.textAuto}>Motocicleta</Text>
+              </View>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => navigation.navigate('CreateRG')}>
+              <View style={styles.button}>
+                <Text style={styles.textAuto}>Carro</Text>
+              </View>
+            </TouchableHighlight>
+
+                <TouchableOpacity style={styles.continueButton} onPress={() => navigation.navigate('CreateRG')}>
                     <Text style={styles.continueText}>Continuar</Text>
                 </TouchableOpacity>
             </View>
@@ -31,6 +47,10 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       marginTop: 20
     },
+    textAuto: {
+      fontSize: 26,
+      color: '#FFF',
+    },
     continueButton: {
       backgroundColor: '#F28000',
       width: '70%',
@@ -50,4 +70,22 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 50,
         backgroundColor: '#FFF'
       },
+      button: {
+        alignItems: "center",
+        backgroundColor: "#6D0AD7",
+        width: 200,
+        height: 60,
+        marginBottom: 20,
+        padding: 10,
+        borderRadius: 7
+      },
+      containerOption: {
+        alignItems: 'center',
+        justifyContent:"center",
+        marginBottom: 30,
+        borderWidth: 1,
+        borderColor: '#6D0AD7', 
+        width: 200,
+        height: 70,
+      }
   })

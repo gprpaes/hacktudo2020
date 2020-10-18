@@ -25,7 +25,7 @@ export default function Login({ navigation }) {
         onChangeText={() => {}}
         />
 
-        <TouchableOpacity style={styles.submitButton}>
+        <TouchableOpacity style={styles.submitButton}  onPress={() => navigation.navigate('Home')}>
           <Text style={styles.submitText}>Acessar</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.submitButton}>
