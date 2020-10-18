@@ -20,12 +20,12 @@ export class ProdutoController {
 
   @Get(':id')
   findOne(@Param('id') id: number) {
-    //return this.entregadorService.findOneEntregador(id);
+    return this.produtoService.findOne(id);
   }
 
   @Get()
   findAll() {
-    //return this.entregadorService.findAll();
+    return this.produtoService.findAll();
   }
 
   @Delete(':id')
