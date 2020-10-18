@@ -34,7 +34,7 @@ export default function Login({ navigation }) {
         <Divider borderColor="#fff" color="#fff" orientation="center">
             ou
         </Divider>
-        <TouchableOpacity style={styles.createButton} onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.createButton} onPress={() => navigation.navigate('Cadastro')}>
           <Text>Cadastre-se</Text>
         </TouchableOpacity>
       </View>
