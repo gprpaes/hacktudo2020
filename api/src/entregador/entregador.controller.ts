@@ -8,13 +8,14 @@ import {
   Put,
 } from '@nestjs/common';
 import { EntregadorService } from './entregador.service';
+import EntregadorDTO from './entregadorDTO';
 
 @Controller('entregador')
 export class EntregadorController {
   constructor(private entregadorService: EntregadorService) {}
   @Post('store')
-  create(@Body() dto: Object) {
-    return dto;
+  create(@Body() dto: EntregadorDTO) {
+    return this.entregadorService.createEntregador(dto);
   }
 
   @Get(':id')

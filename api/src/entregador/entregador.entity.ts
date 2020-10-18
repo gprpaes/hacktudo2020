@@ -48,7 +48,7 @@ export class Entregador {
   @UpdateDateColumn()
   modified: Date;
 
-  @Column()
+  @Column({default: false})
   deleted: boolean;
 
   @OneToMany(
