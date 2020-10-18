@@ -30,11 +30,11 @@ export class ProdutoController {
 
   @Delete(':id')
   deleteOne(@Param('id') id: number) {
-    //return this.entregadorService.deleteEntregador(id);
+    return this.produtoService.deleteOne(id);
   }
 
   @Put(':id')
-  updateOne(@Param('id') id: number, @Body() dto: Object) {
-    //return this.entregadorService.updateEntregador(id, dto)
+  updateOne(@Param('id') id: number, @Body() dto: ProdutoDTO) {
+    return this.produtoService.updateProduto(id, dto)
   }
 }
