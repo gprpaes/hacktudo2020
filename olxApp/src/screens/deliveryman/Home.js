@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, KeyboardAvoidingView, View, Image, TextInput, TouchableOpacity, Text, Button } from 'react-native';
-
+import { StyleSheet, View, Image, TextInput, TouchableOpacity, Text, Button } from 'react-native';
+import { Avatar } from 'react-native-elements';
 export default function Home({ navigation }) {
     return(
-        <KeyboardAvoidingView style={styles.container}>
+        <View style={styles.container}>
             <View style={styles.containerForm}>
                 <View style={styles.topBar}>
                     <Text style={styles.BarText}>Guilherme Paes</Text>
@@ -17,7 +17,20 @@ export default function Home({ navigation }) {
                 source={require('../assets/5.png')}
                 />   */}
             </View>
-        </KeyboardAvoidingView>
+            <View style={styles.containerActions}>
+                  <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Validation')}><Avatar
+                  rounded
+                  size={85}
+                  source={require('../../assets/3.png')}
+                /><Text style={styles.cardText}>Cadastrar próximo itinerário</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Validation')}><Avatar
+                  rounded
+                  size={85}
+                  source={require('../../assets/3.png')}
+                />
+                <Text style={styles.cardText}>Lista de entregas do dia</Text></TouchableOpacity>
+            </View>
+        </View>
     );
 }
 
@@ -79,13 +92,31 @@ const styles = StyleSheet.create({
         fontSize: 20
     },
     containerForm: {
-        flex:1,
+        flex:5,
         alignItems: 'center',
         justifyContent:'center',
         width: '100%',
-        marginBottom: 200,
         borderBottomEndRadius: 40,
         borderBottomLeftRadius: 40,
         backgroundColor: '#6D0AD7'
       },
+    containerActions: {
+      flex:2,
+      alignItems: 'center',
+      justifyContent:'center',
+      flexDirection: 'row',
+      alignItems:'center',
+    },
+    card: { 
+      width: '40%',
+      marginLeft: 10,
+      alignItems: "center",
+      borderRadius: 10,
+      justifyContent: "center",
+      borderWidth: 1,
+      padding: 10
+    },
+    cardText: { 
+      textAlign: 'center'
+    }
   })
